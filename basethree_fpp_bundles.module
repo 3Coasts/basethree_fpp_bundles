@@ -1,0 +1,24 @@
+<?php
+
+function basethree_fpp_bundles_entity_info_alter(&$entity_info) {
+  
+  unset($entity_info['fieldable_panels_pane']['bundles']['fieldable_panels_pane']);
+
+  $bundles = array('Heading','Sub-Heading','Paragraph','Slideshow','Links','List','Map','Video','Files','Images','Image');
+
+  foreach($bundles as $bundle){
+    $machine_name = preg_replace("/[^ \w]+/", "", strtolower($bundle));
+
+    $entity_info['fieldable_panels_pane']['bundles'][$machine_name] = array(
+      'label' => $bundle,
+      'admin' => array(
+        'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
+        'bundle argument' => 4,
+        'real path' => 'admin/structure/fieldable-panels-panes/manage/' . $machine_name,
+        'access arguments' => array('administer fieldable panels panes'),
+      ),
+    );
+
+  }
+
+}

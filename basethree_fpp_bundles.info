@@ -1,0 +1,5 @@
+name = Basethree Fieldable Panel Pane Bundles
+description = Defining custom bundles for use on site.
+core = 7.x
+
+dependencies[] = fieldable_panels_panes
