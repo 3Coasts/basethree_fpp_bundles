@@ -22,3 +22,9 @@ function basethree_fpp_bundles_entity_info_alter(&$entity_info) {
   }
 
 }
+
+
+function basethree_fpp_bundles_init(){
+  drupal_add_js(drupal_get_path('module', 'basethree_fpp_bundles') .'/basethree_fpp_bundles.slideshow.js');
+  drupal_add_css(drupal_get_path('module', 'basethree_fpp_bundles') .'/basethree_fpp_bundles.slideshow.css');
+}
